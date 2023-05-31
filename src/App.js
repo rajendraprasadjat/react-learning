@@ -7,18 +7,22 @@ import { useRef } from "react";
 function App() {
   const headerRef = useRef(null);
 
-
+  console.log("headerRef.current", headerRef.current);
   return (
     <GlobalProvider googleApiKey={"abced"}>
       <div className="App">
-        <Header ref={headerRef} className={"parent-class"}/>
+        <Header ref={headerRef} className={"parent-class"} />
         <PageLayout>
           <h1>Test App</h1>
-          <button onClick={() =>{
-            if(headerRef.current){
-              headerRef.current.onClick(true);
-            }
-          }}>Update Child Value</button>
+          <button
+            onClick={() => {
+              if (headerRef.current) {
+                headerRef.current.onClick(true);
+              }
+            }}
+          >
+            Update Child Value
+          </button>
         </PageLayout>
       </div>
     </GlobalProvider>
